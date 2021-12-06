@@ -1,0 +1,35 @@
+
+
+
+
+<input [(ngModel)]="name">
+
+
+Naam: {{name}}
+
+Onveilige name: <span [innerHTML]="name"></span>
+
+<button (click)="changeName()">Verander naam</button>
+
+<button (click)="addDriver()">Voeg coureur toe</button>
+
+<table>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Coureur</th>
+			<th>Punten</th>
+			<th>Foto</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let driver of drivers"
+			[class.goed]="driver.points > 350"
+			(click)="driver.points = driver.points + 10">
+			<td>{{driver.id}}</td>
+			<td>{{driver.name}}</td>
+			<td>{{driver.points}}</td>
+			<td><img [src]="driver.photoUrl"></td>
+		</tr>
+	</tbody>
+</table>
