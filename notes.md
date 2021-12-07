@@ -167,11 +167,21 @@ built-in pipes
 
 - alle custom shizzle
 
+## Directorystructuur
 
-
-
-
-
-
-
+```sh
+app/
+-- functioneel-deelgebied1
+-- pipes
+-- components
+-- directives
+-- services
+-- models
+-- mocks
+-- guards
+-- interceptors
+-- pages
+   -- products
+   -- meer
+sh
 

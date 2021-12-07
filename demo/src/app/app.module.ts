@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LewisLoserPipe } from './pipes/lewis-loser.pipe';
 
 @NgModule({
-  declarations: [ // components directives pipes
+  declarations: [ // dingen in je HTML: components directives pipes
     AppComponent,
 	LewisLoserPipe
   ],
