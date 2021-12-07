@@ -1,22 +1,13 @@
 <h1>Coureurs</h1>
 
-Template Reference Variable
-<div #bla>
-	<span>hoi</span>
-	doei
-</div>
-
-{{bla.innerHTML}}
-
-
 <div class="form-container">
 	<form (ngSubmit)="addDriverTemplate()" #templateForm="ngForm">
 		<h2>Template-driven (FormsModule)</h2>
 
 		<ol>
 			<li>
-				<label for="input-coureur">Coureur:</label>
-				<input id="input-coureur"
+				<label for="input-coureur-template">Coureur:</label>
+				<input id="input-coureur-template"
 				       required
 					   pattern="^[a-zA-Z -]+$"
 					   [(ngModel)]="newDriver.name"
@@ -27,15 +18,15 @@ Template Reference Variable
 				<span *ngIf="inputName.touched && inputName.errors?.['pattern']">Alleen letters en spaties en streepjes graag</span>
 			</li>
 			<li>
-				<label for="input-points">Punten:</label>
-				<input type="number" id="input-points"
+				<label for="input-points-template">Punten:</label>
+				<input type="number" id="input-points-template"
 				       [(ngModel)]="newDriver.points"
 					   name="points"
 					   required>
 			</li>
 			<li>
-				<label for="input-photo-url">Foto url:</label>
-				<input id="input-photo-url"
+				<label for="input-photo-url-template">Foto url:</label>
+				<input id="input-photo-url-template"
 				       [(ngModel)]="newDriver.photoUrl"
 					   name="photoUrl"
 					   required>
@@ -53,8 +44,7 @@ Template Reference Variable
 		</ol>
 	</form>
 
-
-	<form (ngSubmit)="addDriverReactive()" [formGroup]="addDriverForm">
+	<form (ngSubmit)="addDriverReactive()" [formGroup]="addDriverForm" id="reactive-form">
 		<h2>Model-driven (ReactiveFormsModule)</h2>
 
 		<ol>
@@ -85,7 +75,6 @@ Template Reference Variable
 			</li>
 		</ol>
 	</form>
-
 </div>
 
 
