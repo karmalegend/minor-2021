@@ -109,8 +109,6 @@ package-lock.json
 package.json
 - dependencies:  @angular/core: "^13.0.4"
 
-
-
 ## Less vs Sass/SCSS
 
 Sass:
@@ -138,7 +136,6 @@ h1 {
 }
 ```
 
-
 ## Bindings
 
 {{text}} - tekst binden
@@ -155,8 +152,20 @@ combinatie van:
 <input [value]="..." (oninput)="">
 ```
 
+## Pipes
 
+{{text | iets | nogiets | nogmeer | lewis}}
 
+built-in pipes
+
+- uppercase/lowercase/titlecase
+- date: 'd-m-Y'
+- json
+- currency
+- number
+- async (Promises/Observables)
+
+- alle custom shizzle
 
 
 

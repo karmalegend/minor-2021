@@ -1,17 +1,26 @@
-
+<h1>Coureurs</h1>
 
 
 
 <input [(ngModel)]="name">
 
+Naam: {{name | lewis}}
 
-Naam: {{name}}
+
+
+<hr>
+
+{{bedrag | currency}}
+
+<br>
+
 
 Onveilige name: <span [innerHTML]="name"></span>
 
 <button (click)="changeName()">Verander naam</button>
 
 <button (click)="addDriver()">Voeg coureur toe</button>
+
 
 <table>
 	<thead>
