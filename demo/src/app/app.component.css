@@ -6,3 +6,17 @@ td img {
 .goed {
 	background: lightgoldenrodyellow;
 }
+
+.form-container {
+	display: flex;
+}
+.form-container form:first-child {
+	margin-right: 100px;
+}
+
+input.ng-touched.ng-valid {
+	background: lightgreen;
+}
+input.ng-touched.ng-invalid {
+	background: pink;
+}

@@ -1,25 +1,92 @@
 <h1>Coureurs</h1>
 
+Template Reference Variable
+<div #bla>
+	<span>hoi</span>
+	doei
+</div>
+
+{{bla.innerHTML}}
 
 
-<input [(ngModel)]="name">
+<div class="form-container">
+	<form (ngSubmit)="addDriverTemplate()" #templateForm="ngForm">
+		<h2>Template-driven (FormsModule)</h2>
 
-Naam: {{name | lewis}}
+		<ol>
+			<li>
+				<label for="input-coureur">Coureur:</label>
+				<input id="input-coureur"
+				       required
+					   pattern="^[a-zA-Z -]+$"
+					   [(ngModel)]="newDriver.name"
+					   name="name"
+					   #inputName="ngModel">
+				<span *ngIf="inputName.touched && inputName.invalid">*</span>
+				<span *ngIf="inputName.touched && inputName.errors?.['required']">Vul in aub</span>
+				<span *ngIf="inputName.touched && inputName.errors?.['pattern']">Alleen letters en spaties en streepjes graag</span>
+			</li>
+			<li>
+				<label for="input-points">Punten:</label>
+				<input type="number" id="input-points"
+				       [(ngModel)]="newDriver.points"
+					   name="points"
+					   required>
+			</li>
+			<li>
+				<label for="input-photo-url">Foto url:</label>
+				<input id="input-photo-url"
+				       [(ngModel)]="newDriver.photoUrl"
+					   name="photoUrl"
+					   required>
+			</li>
+			<li>
+				<button [disabled]="templateForm.invalid">Voeg coureur toe</button>
+			</li>
+			<li>
+				valid: {{templateForm.valid}}
+				<pre>{{newDriver | json}}</pre>
+
+				errors:
+				<pre>{{inputName.errors | json}}</pre>
+			</li>
+		</ol>
+	</form>
 
 
+	<form (ngSubmit)="addDriverReactive()" [formGroup]="addDriverForm">
+		<h2>Model-driven (ReactiveFormsModule)</h2>
 
-<hr>
+		<ol>
+			<li>
+				<label for="input-coureur">Coureur:</label>
+				<input id="input-coureur" formControlName="name">
+				<span *ngIf="addDriverForm.controls['name'].touched && addDriverForm.controls['name'].invalid">*</span>
+				<span *ngIf="addDriverForm.controls['name'].touched && addDriverForm.controls['name'].errors?.['required']">Vul in aub</span>
+				<span *ngIf="addDriverForm.controls['name'].touched && addDriverForm.controls['name'].errors?.['pattern']">Alleen letters en spaties en streepjes graag</span>
+			</li>
+			<li>
+				<label for="input-points">Punten:</label>
+				<input type="number" id="input-points" formControlName="points">
+			</li>
+			<li>
+				<label for="input-photo-url">Foto url:</label>
+				<input id="input-photo-url" formControlName="photoUrl">
+			</li>
+			<li>
+				<button [disabled]="addDriverForm.invalid">Voeg coureur toe</button>
+			</li>
+			<li>
+				valid: {{addDriverForm.valid}}
+				<pre>{{addDriverForm.value | json}}</pre>
 
-{{bedrag | currency}}
+				errors:
+				<pre>{{addDriverForm.controls['name'].errors | json}}</pre>
+			</li>
+		</ol>
+	</form>
 
-<br>
-
-
-Onveilige name: <span [innerHTML]="name"></span>
-
-<button (click)="changeName()">Verander naam</button>
-
-<button (click)="addDriver()">Voeg coureur toe</button>
+</div>
 
 
 <table>
