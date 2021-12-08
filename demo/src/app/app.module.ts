@@ -4,11 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { LewisLoserPipe } from './pipes/lewis-loser.pipe';
+import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
+import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
 
 @NgModule({
   declarations: [ // dingen in je HTML: components directives pipes
     AppComponent,
-	LewisLoserPipe
+	LewisLoserPipe,
+	LifecycleComponent,
+ AutocompleteComponent
   ],
   imports: [ // modules
     BrowserModule,

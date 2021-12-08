@@ -1,4 +1,18 @@
-<h1>Coureurs</h1>
+<h1>Demo-app</h1>
+
+<h2>Zooi</h2>
+
+<app-autocomplete [data]="drivers" (select)="handleAutocompleteSelect($event)"></app-autocomplete>
+
+
+
+<button (click)="showLifecycle = !showLifecycle">Toggle lifecycle</button>
+
+<div *ngIf="showLifecycle">
+	<app-lifecycle message="Hier mijn message"></app-lifecycle>
+</div>
+
+<h2>Coureurs</h2>
 
 <div class="form-container">
 	<form (ngSubmit)="addDriverTemplate()" #templateForm="ngForm">

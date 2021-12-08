@@ -1,0 +1,9 @@
+
+<input [formControl]="query"
+       (keyup)="autocomplete()"
+	   (keydown.arrowdown)="next()"
+	   (keydown.enter)="selectItem()">
+<ul>
+	<li *ngFor="let suggestion of suggestions"
+	    [class.highlight]="suggestion.highlight">{{suggestion | json}}</li>
+</ul>

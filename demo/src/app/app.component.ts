@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
 import {Driver } from './models/driver';
 
 @Component({
@@ -14,6 +15,10 @@ export class AppComponent {
 		photoUrl: new FormControl(undefined, Validators.required),
 	});
 	newDriver = {} as Driver;
+	showLifecycle = true;
+
+	// @ViewChild(AutocompleteComponent)
+	// autocomplete!: AutocompleteComponent;
 
 	drivers: Driver[] = [
 		{ id: 4, name: 'Maxie Verstappen', points: 369.5, photoUrl: 'https://cdn.nos.nl/image/2021/12/04/809027/1024x576a.jpg'},
@@ -27,5 +32,11 @@ export class AppComponent {
 
 	addDriverTemplate() {
 		this.drivers.push(this.newDriver);
+
+		// this.autocomplete.
+	}
+
+	handleAutocompleteSelect(driver: Driver) {
+		console.log('hey er is iets geselecteerd in de autocomplete:', driver);
 	}
 }
