@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LewisLoserPipe } from './pipes/lewis-loser.pipe';
 import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
 import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
+// import { NavigateService } from 'src/services/navigate.service';
 
 @NgModule({
   declarations: [ // dingen in je HTML: components directives pipes
@@ -19,7 +20,10 @@ import { AutocompleteComponent } from './components/autocomplete/autocomplete.co
 	FormsModule,
 	ReactiveFormsModule
   ],
-  providers: [  ], // globale instellingen & services voor DI
+  providers: [
+	//   { provide: NavigateService, useClass: NavigateServiceMock },
+	//   NavigateService // Angular 2 4 5 6
+  ], // globale instellingen & services voor DI
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { NavigateService } from 'src/app/services/navigate.service';
 
 @Component({
 	selector: 'app-autocomplete',
 	templateUrl: './autocomplete.component.html',
-	styleUrls: ['./autocomplete.component.css'],
+	styleUrls: ['./autocomplete.component.css']
 })
 export class AutocompleteComponent {
 	@Input() data!: any[]; // generic component is secretly the way to go / data pollution
@@ -12,6 +13,11 @@ export class AutocompleteComponent {
 
 	query = new FormControl();
 	suggestions?: any[];
+
+
+	constructor(private navigateService: NavigateService) {
+
+	}
 
 	autocomplete() {
 		this.suggestions = [];
@@ -33,14 +39,7 @@ export class AutocompleteComponent {
 	}
 
 	next() {
-		let index = this.suggestions!.findIndex((x) => x.highlight);
-		if (index > -1) {
-			delete this.suggestions![index].highlight;
-			this.suggestions![(index + 1) % this.suggestions!.length].highlight = true;
-			return;
-		}
-
-		this.suggestions![0].highlight = true;
+		this.navigateService.next(this.suggestions!);
 	}
 
 	selectItem() {
