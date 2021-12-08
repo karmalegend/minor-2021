@@ -185,3 +185,149 @@ app/
    -- meer
 sh
 
+## Forms
+
+template vs model
+
+**template**
+- je HTML wordt wat langer
+- je `*ngIf` expressies zijn zonder extra moeite korter
+- custom validators zijn attributen (directives)
+
+**model**
+- makkelijker te testen
+- dynamische formulierelementen zijn ruk
+- custom validators zijn gewone functies
+
+## Lifecycles
+
+Wat Angular doet:
+
+```ts
+let comp = new LifecycleComponent();
+comp.message = elem.getAttribute('message');
+comp.ngOnInit();
+```
+
+### `afterViewChecked`
+
+```
+html<tr *ngFor="...">
+```
+```html
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+```
+
+## Testing
+
+Unittesten
+- Karma/jasmine
+- Mocha
+
+Integratietesten
+- Component testing
+- HTML
+- Database
+- API
+- Karma/jasmine
+- Mocha
+
+End-to-end testen
+- Cypress
+- Protractor (deprecated)
+- Selenium
+- Jest
+- W3C WebDriver - nightwatch / wdio
+
+
+
+Acceptance TDD
+- CucumberJS / Specflow (.NET)
+
+### Unittesten
+
+// mocks spies
+dummies - doet helemaal niks
+stubs - voorgedefinieerd testdata
+mocks - nepgedrag (of het is aangeroepen)
+
+spies
+
+black box vs white box
+
+```ts
+// wat spyOn ongeveer doet:
+
+function spyOn(obj, target) {
+	let original = obj[target];
+
+	obj[target] = () => {
+		// register diagnostics
+	};
+}
+```
+
+### Wanneer testen minder belangrijk is (MENING)
+
+- Proof-of-concepts
+  => wanneer je project < 6 maanden duurt
+
+  let wel: "niets is zo permanent als een tijdelijke oplossing"
+
+- Als je stagiaires inhuurt om de testen te schrijven
+- Als je x% code coverage probeert te halen
+
+```cs
+try { controller.Do(); } catch(Exception e) { }
+```
+
+### TDD: Test-driven development/design
+
+1. Schrijf de test
+2. Run de test en zie dat hij faalt
+3. Schrijf code   (KISS)
+4. Run de test en zie dat hij slaagt
+5. Refactor
+
+Repeat.
+
+## Components
+
+parent  <====>  child
+App     <=====>  Autocomplete
+
+```html
+<app-autocomplete [data]="..." (select)="">
+```
+```ts
+@ViewChild(ComponentNaam)
+child: ComponentNaam;
+
+@ViewChildren(ComponentNaam)
+children: QueryList<ComponentNaam>;
+```
+
+## Waar JP op let bij het schrijven van code
+
+1. Leesbaarheid - als ik het lees, snap ik wat er staat?
+2. Onderhoudbaarheid - robuustheid - patterns - DRY - SOLID KISS YAGNI   You Aren't Gonna Need It
+3. Testbaarheid
+4. Veiligheid  - hackbaarheid
+5. Dat het werkt
+6. Performance  (kan die naar boven afhankelijk van situatie)
+
+## OTAP
+
+Ontwikkeling  (jouw devbak)
+Test   (functioneel)
+Acceptatie   (FAT/GAT/PAT)  functionele acceptatie test    gebruikers acceptatie test   preproductie acceptatie test
+Productie
+
+## Java vs JavaScript
+
+Java == JavaScript voor zover Car == Carpet

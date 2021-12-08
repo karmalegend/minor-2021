@@ -10,23 +10,23 @@ export class LifecycleComponent implements OnInit, OnDestroy {
 
 	constructor() {
 		// dependency injection
-		console.log('[lifecycle] constructor', this.message);
+		// console.log('[lifecycle] constructor', this.message);
 	}
 
 	ngOnInit() {
 		// alle initializatiezaken
-		console.log('[lifecycle] ngOnInit', this.message);
+		// console.log('[lifecycle] ngOnInit', this.message);
 
-		this.intervalId = setInterval(
-			() => console.log('hallo vanaf interval'),
-			1000
-		);
+		// this.intervalId = setInterval(
+		// 	() => console.log('hallo vanaf interval'),
+		// 	1000
+		// );
 	}
 
 	ngOnDestroy() {
-		if (this.intervalId) {
-			clearInterval(this.intervalId);
-		}
+		// if (this.intervalId) {
+		// 	clearInterval(this.intervalId);
+		// }
 		// connecties sluiten
 		// - intervals
 		// - sliding setTimeout()
@@ -37,6 +37,6 @@ export class LifecycleComponent implements OnInit, OnDestroy {
 		// - bluetooth API
 		// - indexed databse
 		// - web workers
-		console.log('[lifecycle] ngOnDestroy');
+		// console.log('[lifecycle] ngOnDestroy');
 	}
 }
