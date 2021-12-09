@@ -331,3 +331,81 @@ Productie
 ## Java vs JavaScript
 
 Java == JavaScript voor zover Car == Carpet
+
+## Dependency injection
+
+- dat je je dependency inject
+- het is een vorm Inversion of Control 
+
+```ts
+new Car()
+new Wheel()
+new Wheel()
+new Wheel()
+new Wheel()
+new Engine()
+```
+
+reddit ELI5: kind dorst ouders koelkast
+
+- standaard zijn services SINGLETONS - 1 instantie
+
+## REST:  REpresentational State Transfer
+
+HTTP-header Accept: application/json / xml / 
+
+REST maturity levels
+
+0 Swamp of Plain old XML
+1 Resources
+2 Verbs  - GET POST PUT PATCH DELETE
+  - statuscodessen  201 Created  204 No Content  404 405 Method Not Allowed  415 Mediatype not supportd   418 I'm a teapot
+3 Hypermedia As The Engine Of Application State // publieke APIs
+
+GET api/car/14
+
+```json
+{
+	"make": "...",
+	"model": "...",
+	"links": [
+		{
+			"history": "api/car/14/history"
+		}
+	]
+}
+```
+
+HttpClient
+=> content-type  json
+=> request interceptor
+=> response interceptor (XML)
+
+### POST vs PUT
+
+POST toevoegen
+PUT wijzigen
+
+POST   api/car   { make: '...', model: '...' }
+POST   api/car   { make: '...', model: '...' }
+POST   api/car   { make: '...', model: '...' }
+POST   api/car   { make: '...', model: '...' }
+POST   api/car   { make: '...', model: '...' }
+POST   api/car   { make: '...', model: '...' }
+
+PUT   api/car/abcdf384-abc9d9d3-d993bba9d994   { make: '...', model: '...' }
+PUT   api/car/583   { make: '...', model: '...' }
+PUT   api/car/583   { make: '...', model: '...' }
+PUT   api/car/583   { make: '...', model: '...' }
+PUT   api/car/583   { make: '...', model: '...' }
+PUT   api/car/583   { make: '...', model: '...' }
+
+idempotent
+
+## ESLint
+
+Static code analysis
+
+- google
+- default eslint
+- airbnb
