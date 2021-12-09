@@ -409,3 +409,100 @@ Static code analysis
 - google
 - default eslint
 - airbnb
+
+## json-server werkend krijgen
+
+1. npm install --global json-server
+2. data.json aanmaken
+3. json-server data.json
+
+## Lijst verversen
+
+1. Lokale object toevoegen aan de lokale array
+   => zeer snel
+   => goedkoop
+   => **in eerste instantie** makkelijk
+   => niet in sync in server
+   => wat als jouw POST stukgaat?
+   => Optimistic UI
+
+2. De POST afwachten en bijgewerkte entity toevoegt aan de lokale array
+   => duurt langer
+   => meer in sync met de server
+   => als POST stukgaat, is er geen verwarring
+   => relatief weinig netwerktraffic
+
+3. De hele lijst opnieuw ophalen
+   => duurt veruit het langst
+   => belast je server ook maximaal
+   => volledig in sync met server
+   => vaak het gemakkelijkst om te implementeren
+   => lijkt heel erg op wat we vroegah deden
+      - PRG pattern
+
+## Observables
+
+- Observable
+- Subject - geen geschiedenis
+  - BehaviorSubject - de laatste `.next()`
+  - ReplaySubject - veel geschiedenis `.next()`
+
+Observables in Angular
+* `HttpClient` (promises zijn eigenlijk gepaster)
+* `formControl.valueChanges.subscribe()`
+* Route params
+* `EventEmitter<>`
+
+
+## Routing
+
+Angular Router features:
+- Basics van routing
+- Route parameters
+- Child routes
+- Route guards
+- Route resolvers
+- Lazy loading
+
+Angular 2  (september 2016)
+Angular 4
+Angular 5
+Angular 6
+Angular ...
+Angular 13
+
+
+Wat maakt een SPA een SPA?
+- geen refreshes
+- het is 1 pagina
+
+1. Dat je alle templates van alle pagina's client-side opslaan
+   - In-memory strings
+   - DOM-elementen
+2. Lazy-load
+
+Ter info: PRPL-pattern
+Push critical resources
+Render initial route
+Pre-cache additional routes
+Lazy-load the rest
+
+
+
+Angular routing:
+
+1. <router-outlet> ergens in je app.component.html
+2. routes definieren
+3. alles in pagina's opdelen
+4. RouterModule
+
+
+
+
+## UI component libraries
+
+* Angular Material
+* PrimeNG
+* Nebular
+* Bootstrap-wrappers
+

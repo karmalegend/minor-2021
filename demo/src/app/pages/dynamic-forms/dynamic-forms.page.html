@@ -1,0 +1,20 @@
+<h2>Dynamische formuliervelden</h2>
+
+<div style="display: flex; justify-content: space-between;">
+
+	<form [formGroup]="form">
+		<input formControlName="title">
+
+		<ol formArrayName="drivers">
+			<li *ngFor="let driver of drivers; let i = index" [formGroupName]="i">
+				{{i}}
+				<input type="checkbox" formControlName="checked">
+				<input formControlName="name">
+			</li>
+		</ol>
+
+	</form>
+
+	<pre>{{form.value | json}}</pre>
+
+</div>

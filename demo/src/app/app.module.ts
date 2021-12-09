@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { DriversPage } from './pages/drivers/drivers.page';
 import { ZooiPage } from './pages/zooi/zooi.page';
 import { routes } from './app.routes';
+import { DynamicFormsPage } from './pages/dynamic-forms/dynamic-forms.page';
 
 @NgModule({
 	declarations: [
@@ -22,6 +23,7 @@ import { routes } from './app.routes';
 		AutocompleteComponent,
   DriversPage,
   ZooiPage,
+  DynamicFormsPage,
 	],
 	imports: [
 		// modules
