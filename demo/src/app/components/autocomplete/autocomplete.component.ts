@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { NavigateService } from 'src/app/services/navigate.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { NavigateService } from 'src/app/services/navigate.service';
 	templateUrl: './autocomplete.component.html',
 	styleUrls: ['./autocomplete.component.css']
 })
-export class AutocompleteComponent {
+export class AutocompleteComponent implements OnInit {
 	@Input() data!: any[]; // generic component is secretly the way to go / data pollution
 	@Output() select = new EventEmitter(); // also supports generics
 
@@ -19,7 +20,17 @@ export class AutocompleteComponent {
 
 	}
 
+	ngOnInit() {
+		this.query.valueChanges
+			.pipe(
+				debounceTime(300),
+				distinctUntilChanged()
+			)
+			.subscribe(() => this.autocomplete());
+	}
+
 	autocomplete() {
+		console.log('autocompleting!', this.query.value);
 		this.suggestions = [];
 
 		for (let item of this.data) {

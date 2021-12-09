@@ -8,6 +8,10 @@ import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
 import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
 // import { NavigateService } from 'src/services/navigate.service';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { DriversPage } from './pages/drivers/drivers.page';
+import { ZooiPage } from './pages/zooi/zooi.page';
+import { routes } from './app.routes';
 
 @NgModule({
 	declarations: [
@@ -16,13 +20,16 @@ import { HttpClientModule } from '@angular/common/http';
 		LewisLoserPipe,
 		LifecycleComponent,
 		AutocompleteComponent,
+  DriversPage,
+  ZooiPage,
 	],
 	imports: [
 		// modules
 		BrowserModule,
 		FormsModule,
 		ReactiveFormsModule,
-		HttpClientModule
+		HttpClientModule,
+		RouterModule.forRoot(routes)
 	],
 	providers: [
 		//   { provide: NavigateService, useClass: NavigateServiceMock },

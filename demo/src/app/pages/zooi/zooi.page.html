@@ -1,0 +1,15 @@
+<h2>Van alles</h2>
+
+<app-autocomplete [data]="drivers!" (select)="handleAutocompleteSelect($event)"></app-autocomplete>
+
+<button (click)="showLifecycle = !showLifecycle">Toggle lifecycle</button>
+
+<div *ngIf="showLifecycle">
+	<app-lifecycle message="Hier mijn message"></app-lifecycle>
+</div>
+
+<h2>Pokémon</h2>
+
+<div *ngIf="pokemon">
+	Naam: {{pokemon.name}}
+</div>

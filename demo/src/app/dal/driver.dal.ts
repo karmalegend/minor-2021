@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, switchMap } from 'rxjs';
 import { Driver } from '../models/driver';
 
 @Injectable({ providedIn: 'root' })
@@ -29,13 +29,10 @@ export class DriverDal {
 	add(driver: Driver) {
 		this.http
 			.post<Driver>('http://localhost:3000/driver', driver)
+			.pipe(switchMap(() => this.http.get('htto://')))
 			.subscribe((updatedDriver) => {
-				if (!this.drivers) {
-					this.drivers = [];
-				}
 
-				this.drivers.push(updatedDriver);
-				this.subject.next(this.drivers!);
+				
 			});
 	}
 }
