@@ -1,6 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
+import { Pokemon } from 'src/types';
 import {Driver } from './models/driver';
 
 @Component({
@@ -8,7 +9,7 @@ import {Driver } from './models/driver';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 	addDriverForm = new FormGroup({
 		name: new FormControl(undefined, [Validators.required, Validators.pattern('^[a-zA-Z -]+$')]),
 		points: new FormControl(undefined, Validators.required),
@@ -16,6 +17,7 @@ export class AppComponent {
 	});
 	newDriver = {} as Driver;
 	showLifecycle = true;
+	pokemon?: Pokemon;
 
 	// @ViewChild(AutocompleteComponent)
 	// autocomplete!: AutocompleteComponent;
@@ -25,6 +27,20 @@ export class AppComponent {
 		{ id: 8, name: 'Lewie Hamilton', points: 369.5, photoUrl: 'https://images0.persgroep.net/rcs/sUVHDWIHt8emMMjFB6SSNbho9Ac/diocontent/210600718/_fitwidth/694/?appId=21791a8992982cd8da851550a453bd7f&quality=0.8'},
 		{ id: 15, name: 'Valttori Bottas', points: 312, photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/14/F12019_Schloss_Gabelhofen_%2820%29.jpg'},
 	];
+
+	constructor(private http: HttpClient) {
+
+	}
+
+	ngOnInit() {
+		this.http.post('...', {}).subscribe();
+
+		this.http.get<Pokemon>('https://pokeapi.co/api/v2/pokemon/ditto').subscribe(pokemon => {
+			console.log('pokemon:', pokemon);
+
+			this.pokemon = pokemon;
+		});
+	}
 
 	addDriverReactive() {
 		this.drivers.push(this.addDriverForm.value);

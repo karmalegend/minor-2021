@@ -7,23 +7,27 @@ import { LewisLoserPipe } from './pipes/lewis-loser.pipe';
 import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
 import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
 // import { NavigateService } from 'src/services/navigate.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [ // dingen in je HTML: components directives pipes
-    AppComponent,
-	LewisLoserPipe,
-	LifecycleComponent,
- AutocompleteComponent
-  ],
-  imports: [ // modules
-    BrowserModule,
-	FormsModule,
-	ReactiveFormsModule
-  ],
-  providers: [
-	//   { provide: NavigateService, useClass: NavigateServiceMock },
-	//   NavigateService // Angular 2 4 5 6
-  ], // globale instellingen & services voor DI
-  bootstrap: [AppComponent]
+	declarations: [
+		// dingen in je HTML: components directives pipes
+		AppComponent,
+		LewisLoserPipe,
+		LifecycleComponent,
+		AutocompleteComponent,
+	],
+	imports: [
+		// modules
+		BrowserModule,
+		FormsModule,
+		ReactiveFormsModule,
+		HttpClientModule
+	],
+	providers: [
+		//   { provide: NavigateService, useClass: NavigateServiceMock },
+		//   NavigateService // Angular 2 4 5 6
+	], // globale instellingen & services voor DI
+	bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

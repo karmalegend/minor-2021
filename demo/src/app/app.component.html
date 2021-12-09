@@ -1,8 +1,16 @@
 <h1>Demo-app</h1>
 
+<h2>Pokémon</h2>
+
+<div *ngIf="pokemon">
+	Naam: {{pokemon.name}}
+</div>
+
+
 <h2>Zooi</h2>
 
 <app-autocomplete [data]="drivers" (select)="handleAutocompleteSelect($event)"></app-autocomplete>
+
 
 
 
