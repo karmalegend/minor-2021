@@ -1,1 +1,5 @@
 node_modules
+server/is4/Backend/Api/bin
+server/is4/Backend/Api/obj
+server/is4/Backend/IS4/bin
+server/is4/Backend/IS4/obj
