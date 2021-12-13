@@ -558,3 +558,60 @@ In admin interface:
   * Assigned identity resources: profile en openid
   * Assigned protected resources: pokemonapi
   * [Save]
+
+## Andere frameworks
+
+Vue
+React
+Angular
+Svelte
+
+Blazor
+=> unittesten:
+
+<input @ref="VarInComp">
+
+VarInComp.FocusAsync()
+
+ElementReference   struct
+EventCallback
+EditForm EditContext
+
+BlazorCompponent.razor
+BlazorCompponent.razor.cs
+
+```cs
+public partial class BlazorComponent : ComponentBase
+{
+
+}
+```
+
+## Change detection
+
+{{iets}}
+{{bla | uppercase}}
+*ngFor
+*ngIf
+[(ngModel)]="..."
+
+// holy shit echt waar?
+
+zone.js - "open-heart surgery on the browser"
+NgZone
+
+```js
+let originalTimeout = window.setTimeout;
+window.setTimeout = (callback, ms) => {
+	// registers diagnostic data
+	originalTimeout(() => {
+		callback();
+		runChangeDetection();
+	}, ms);
+};
+
+// native dingen overschrijven? geen goede ervaringen mee.
+undefined = 'hoi'; // IE5.5 werkt dit
+
+// maar nog nooit problemen mee gehad, dus kudos Angular!
+```
