@@ -539,6 +539,11 @@ XSS:
 ### IdentityServer4 instellingen
 
 * User toevoegen: niets bijzonders, gewoon naam en wachtwoord invoeren
+* Protected resource toevoegen:
+  * Klik op Add Resource
+  * Als id "pokemonapi" ingevuld.
+  * Display Name is puur voor weergave en maakt niet veel uit, maar "Pokemon API" gebruikt
+  * Claimtypes assigned: name, email, family_name en given_name
 * Client toevoegen:
   * Single Page App [Start]
   * Client ID: "angulah". Deze waarde komt terug in de config vanaf de frontend
@@ -548,8 +553,3 @@ XSS:
   * Assigned identity resources: profile en openid
   * Assigned protected resources: pokemonapi
   * [Save]
-* Protected resource toevoegen:
-  * Klik op Add Resource
-  * Als id "pokemonapi" ingevuld.
-  * Display Name is puur voor weergave en maakt niet veel uit, maar "Pokemon API" gebruikt
-  * Claimtypes assigned: name, email, family_name en given_name
