@@ -538,6 +538,11 @@ XSS:
 
 ### IdentityServer4 instellingen
 
+In Visual Studio-project:
+* In \wwwroot\admin\assets\env.js alle http://localhost:5000 naar https://localhost:5000 aanpassen
+
+In admin interface:
+
 * User toevoegen: niets bijzonders, gewoon naam en wachtwoord invoeren
 * Protected resource toevoegen:
   * Klik op Add Resource
