@@ -535,3 +535,26 @@ XSS:
 - session storage
 - indexed database
 - willekeurige globale variabele
+
+### IdentityServer4 instellingen
+
+In Visual Studio-project:
+* In \wwwroot\admin\assets\env.js alle http://localhost:5000 naar https://localhost:5000 aanpassen
+
+In admin interface:
+
+* User toevoegen: niets bijzonders, gewoon naam en wachtwoord invoeren
+* Protected resource toevoegen:
+  * Klik op Add Resource
+  * Als id "pokemonapi" ingevuld.
+  * Display Name is puur voor weergave en maakt niet veel uit, maar "Pokemon API" gebruikt
+  * Claimtypes assigned: name, email, family_name en given_name
+* Client toevoegen:
+  * Single Page App [Start]
+  * Client ID: "angulah". Deze waarde komt terug in de config vanaf de frontend
+  * Display Name: is puur voor weergave en maakt niet veel uit, maar "Angularfrontend" gebruikt
+  * Callback URL: "http://localhost:4200/login-callback", waarbij login-callback een route is die binnen de Angularapp moet bestaan
+  * Logout URL: leeg gelaten. Hij redirect na uitloggen dan naar de root van je frontend.
+  * Assigned identity resources: profile en openid
+  * Assigned protected resources: pokemonapi
+  * [Save]
