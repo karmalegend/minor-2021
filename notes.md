@@ -506,3 +506,32 @@ Angular routing:
 * Nebular
 * Bootstrap-wrappers
 
+## Authenticatie
+
+identificatie  wie ben je
+authenticatie  bewijs dat je dat bent
+autorisatie    wat mag je  <=== OAuth (oorspronkelijk)
+
+
+### JWT
+
+JSON Web Token
+
+Authorization: Bearer <insert token here>
+
+ey  header  .  payload  .  signature
+
+Kritiekpuntje: waar sla je dat JWT op?
+
+XSRF: Cross-site Request Forgery
+- cookies
+  => HttpOnly - niet vanuit JS uit te lezen
+
+XSS:
+ - reflected XSS: als een hekker een gebruiker overtuigt om bepaalde javascript uit te voeren
+ - stored XSS: <script>document.cookie</script>
+
+- local storage
+- session storage
+- indexed database
+- willekeurige globale variabele

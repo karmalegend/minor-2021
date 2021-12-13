@@ -13,6 +13,8 @@ import { DriversPage } from './pages/drivers/drivers.page';
 import { ZooiPage } from './pages/zooi/zooi.page';
 import { routes } from './app.routes';
 import { DynamicFormsPage } from './pages/dynamic-forms/dynamic-forms.page';
+import { AuthPage } from './pages/auth/auth.page';
+import { LoginCallbackPage } from './pages/login-callback/login-callback.page';
 
 @NgModule({
 	declarations: [
@@ -24,6 +26,8 @@ import { DynamicFormsPage } from './pages/dynamic-forms/dynamic-forms.page';
   DriversPage,
   ZooiPage,
   DynamicFormsPage,
+  AuthPage,
+  LoginCallbackPage,
 	],
 	imports: [
 		// modules
