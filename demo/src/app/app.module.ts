@@ -15,6 +15,7 @@ import { routes } from './app.routes';
 import { DynamicFormsPage } from './pages/dynamic-forms/dynamic-forms.page';
 import { AuthPage } from './pages/auth/auth.page';
 import { LoginCallbackPage } from './pages/login-callback/login-callback.page';
+import { PokedexComponent } from './components/pokedex/pokedex.component';
 
 @NgModule({
 	declarations: [
@@ -28,6 +29,7 @@ import { LoginCallbackPage } from './pages/login-callback/login-callback.page';
   DynamicFormsPage,
   AuthPage,
   LoginCallbackPage,
+  PokedexComponent,
 	],
 	imports: [
 		// modules

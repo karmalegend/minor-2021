@@ -30,6 +30,10 @@ export class DriversPage implements OnInit {
 		this.driverDal.getAll().subscribe((drivers) => {
 			console.log('drivers:', drivers);
 			this.drivers = drivers;
+
+			setTimeout(() => {
+				this.drivers![1].name += 'whaaaaaaaat';
+			}, 2000);
 		});
 	}
 
