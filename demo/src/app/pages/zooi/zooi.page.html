@@ -10,6 +10,12 @@
 
 <h2>Pokémon</h2>
 
+<div style="width: 400px; height: 300px; background: lightpink;" (mousemove)="move()">hover hier</div>
+
+<button (click)="appendPokemonName()">Vul naam aan</button>
+
 <div *ngIf="pokemon">
 	Naam: {{pokemon.name}}
 </div>
+
+<app-pokedex [pokemon]="pokemon"></app-pokedex>

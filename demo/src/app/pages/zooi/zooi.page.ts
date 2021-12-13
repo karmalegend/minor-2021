@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/types';
 import { DriverDal } from '../../dal/driver.dal';
@@ -17,7 +18,9 @@ export class ZooiPage implements OnInit {
 
 	drivers?: Driver[];
 
-	constructor(private driverDal: DriverDal) {
+	constructor(
+		private http: HttpClient,
+		private driverDal: DriverDal) {
 
 	}
 
@@ -26,9 +29,19 @@ export class ZooiPage implements OnInit {
 			console.log('drivers:', drivers);
 			this.drivers = drivers;
 		});
+
+		this.http.get<Pokemon>('https://pokeapi.co/api/v2/pokemon/ditto').subscribe(pokemon => this.pokemon = pokemon);
 	}
 
 	handleAutocompleteSelect(driver: Driver) {
 		console.log('hey er is iets geselecteerd in de autocomplete:', driver);
+	}
+
+	appendPokemonName() {
+		this.pokemon!.name += 'o';
+	}
+
+	move() {
+		
 	}
 }
